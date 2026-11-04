@@ -233,7 +233,7 @@
   <h2>O que precisa ter antes</h2>
   <p class="sub">O instalador cuida dos três motores e confere o resto antes de começar: se faltar algo, ele mostra o comando para instalar.</p>
   <div class="grid g4">
-    <div class="card"><h3>GPU</h3><p>Placa NVIDIA, Mac com chip da Apple ou mini PC de memória unificada (veja acima).</p></div>
+    <div class="card"><h3>GPU</h3><p>Placa NVIDIA, Mac com chip da Apple ou mini PC de memória unificada (veja acima). Na NVIDIA, com o driver instalado: <code>nvidia-smi</code> tem de funcionar.</p></div>
     <div class="card"><h3>Python 3.10+ e curl</h3><p>No Ubuntu/Debian também o <code>python3-venv</code>, e <code>sudo</code> para instalar o Ollama.</p><pre>sudo apt install -y python3-venv curl</pre></div>
     <div class="card"><h3>Chrome</h3><p>Ou outro navegador com acesso ao microfone.</p></div>
     <div class="card"><h3>Claude Code ou Codex</h3><p>Só para construir com os prompts, uma vez.</p></div>
@@ -272,7 +272,7 @@
 
   <div class="step"><div class="b">4</div><div>
     <h3>Crie a voz</h3>
-    <p>No VoiceStudio: <b>Model Catalogue</b> → instale o <b>VoxCPM2</b> (fala português, licença Apache-2.0) e selecione. Depois <b>Profiles → New → Clone</b> com 10–20 s da SUA voz, sem música nem eco, e dê o nome <b>Jarvis</b>. O VoiceStudio é um app com tela; anote a versão que funcionou e não atualize no meio do projeto.</p>
+    <p>No VoiceStudio: <b>Model Catalogue</b> → instale o <b>VoxCPM2</b> (fala português, licença Apache-2.0) e selecione. Depois <b>Profiles → New → Clone</b> com 10–20 s da SUA voz, sem música nem eco, e dê o nome <b>Jarvis</b>. O VoiceStudio é um app com tela; anote a versão que funcionou e não atualize no meio do projeto. No Linux, abra com <code>~/.local/bin/VoiceStudio</code> (é um AppImage: no Ubuntu 24.04 precisa de <code>sudo apt install -y libfuse2t64</code>, no 22.04 de <code>libfuse2</code>). No primeiro uso ele baixa o próprio motor e demora.</p>
   </div></div>
 
   <div class="step"><div class="b">5</div><div>

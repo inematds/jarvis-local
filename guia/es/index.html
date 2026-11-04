@@ -233,7 +233,7 @@
   <h2>Qué necesitas antes de empezar</h2>
   <p class="sub">El instalador se encarga de los tres motores y revisa lo demás antes de empezar: si falta algo, muestra el comando para instalarlo.</p>
   <div class="grid g4">
-    <div class="card"><h3>GPU</h3><p>Tarjeta NVIDIA, Mac con chip de Apple o mini PC con memoria unificada (ver arriba).</p></div>
+    <div class="card"><h3>GPU</h3><p>Tarjeta NVIDIA, Mac con chip de Apple o mini PC con memoria unificada (ver arriba). En NVIDIA, con el driver instalado: <code>nvidia-smi</code> tiene que funcionar.</p></div>
     <div class="card"><h3>Python 3.10+ y curl</h3><p>En Ubuntu/Debian también necesitas <code>python3-venv</code> y <code>sudo</code> para instalar Ollama.</p><pre>sudo apt install -y python3-venv curl</pre></div>
     <div class="card"><h3>Chrome</h3><p>U otro navegador con acceso al micrófono.</p></div>
     <div class="card"><h3>Claude Code o Codex</h3><p>Solo para construirlo con los prompts, una vez.</p></div>
@@ -272,7 +272,7 @@
 
   <div class="step"><div class="b">4</div><div>
     <h3>Crea la voz</h3>
-    <p>En VoiceStudio: <b>Model Catalogue</b> → instala <b>VoxCPM2</b> (habla portugués, licencia Apache-2.0) y selecciónalo. Luego ve a <b>Profiles → New → Clone</b> con 10–20 s de TU voz, sin música ni eco, y ponle el nombre <b>Jarvis</b>. VoiceStudio es una aplicación con interfaz gráfica; anota la versión que funcionó y no la actualices durante el proyecto.</p>
+    <p>En VoiceStudio: <b>Model Catalogue</b> → instala <b>VoxCPM2</b> (habla portugués, licencia Apache-2.0) y selecciónalo. Luego ve a <b>Profiles → New → Clone</b> con 10–20 s de TU voz, sin música ni eco, y ponle el nombre <b>Jarvis</b>. VoiceStudio es una aplicación con interfaz gráfica; anota la versión que funcionó y no la actualices durante el proyecto. En Linux, ábrelo con <code>~/.local/bin/VoiceStudio</code> (es un AppImage: Ubuntu 24.04 necesita <code>sudo apt install -y libfuse2t64</code> y 22.04 <code>libfuse2</code>). En el primer uso descarga su propio motor y tarda.</p>
   </div></div>
 
   <div class="step"><div class="b">5</div><div>

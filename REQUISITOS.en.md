@@ -39,6 +39,8 @@ Each model takes up 2 to 80 GB. Models can live on an external SSD without any p
 
 ## Software
 
+- **NVIDIA card:** driver installed (the `nvidia-smi` command must work).
+- **VoiceStudio on Linux:** it is an AppImage at `~/.local/bin/VoiceStudio`; Ubuntu needs `libfuse2t64` (24.04) or `libfuse2` (22.04).
 - Python 3.10+, curl, and Google Chrome (or another browser with a microphone). On Ubuntu/Debian: `sudo apt install -y python3-venv curl` (the Ollama installer asks for `sudo`).
 - **NVIDIA card on Linux/Windows:** the installer puts the Whisper CUDA libraries in the venv (`nvidia-cublas-cu12`, `nvidia-cudnn-cu12` 9.x). Without them, faster-whisper reports `libcudnn_ops.so.9 not found` or falls back to the CPU.
 - **Claude Code or Codex** only to **build** the assistant with the prompts (once). Once it’s ready, the assistant runs without them and without internet.

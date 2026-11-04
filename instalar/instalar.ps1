@@ -23,10 +23,11 @@ $smi = Get-Command nvidia-smi -ErrorAction SilentlyContinue
 if ($smi) {
   $nome = (& nvidia-smi --query-gpu=name --format=csv,noheader | Select-Object -First 1).Trim()
   $vram = (& nvidia-smi --query-gpu=memory.total --format=csv,noheader,nounits | Select-Object -First 1) -replace '[^0-9]', ''
-  if ($vram) { $Gpu = "NVIDIA $nome"; $MemGB = [math]::Floor([int]$vram / 1024) }
+  if ($vram) { $Gpu = "NVIDIA $nome"; $MemGB = [math]::Round([int]$vram / 1024) }
 }
 if (-not $Gpu) {
   Erro "Nao achei placa NVIDIA (nvidia-smi)."
+  Write-Host "    Tem placa NVIDIA? Instale o driver primeiro: o comando nvidia-smi tem de funcionar."
   Write-Host "    O Jarvis Local precisa de GPU para conversar por voz. Veja REQUISITOS.md."
   Write-Host "    Mini PC AMD Ryzen AI Max+: o Ollama usa a GPU integrada; rode com -ForcarCpu e confira a BIOS."
   if (-not $ForcarCpu) { exit 1 }
@@ -70,6 +71,7 @@ Titulo "5/5 - Voz (VoiceStudio)"
 if ($SemVoz) { Aviso "Pulado (-SemVoz). O assistente usa a voz do navegador." }
 else {
   Roda "irm https://voicestudio.sh/install.ps1 | iex"
+  Write-Host "    Abra o VoiceStudio pelo menu Iniciar (no 1o uso ele baixa o proprio motor e demora)."
   Write-Host "    Depois, no app: Model Catalogue -> instale VoxCPM2 (fala portugues, Apache-2.0) e selecione."
   Write-Host "    Profiles -> New -> Clone, com 10-20 s da SUA voz, sem musica nem eco. Nome do perfil: Jarvis"
 }

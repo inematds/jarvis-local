@@ -39,6 +39,8 @@ Cada modelo ocupa entre 2 y 80 GB. Los modelos pueden guardarse sin problema en 
 
 ## Software
 
+- **Tarjeta NVIDIA:** driver instalado (el comando `nvidia-smi` tiene que funcionar).
+- **VoiceStudio en Linux:** es un AppImage en `~/.local/bin/VoiceStudio`; Ubuntu necesita `libfuse2t64` (24.04) o `libfuse2` (22.04).
 - Python 3.10+, curl y Google Chrome (u otro navegador con micrófono). En Ubuntu/Debian: `sudo apt install -y python3-venv curl` (el instalador de Ollama pide `sudo`).
 - **Tarjeta NVIDIA en Linux/Windows:** el instalador coloca en el venv las bibliotecas CUDA de Whisper (`nvidia-cublas-cu12`, `nvidia-cudnn-cu12` 9.x). Sin ellas, faster-whisper muestra `libcudnn_ops.so.9 not found` o recurre a la CPU.
 - **Claude Code o Codex** solo para **construir** el asistente con los prompts (una vez). Después de estar listo, el asistente funciona sin ellos y sin internet.

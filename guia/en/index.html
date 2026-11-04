@@ -233,7 +233,7 @@
   <h2>What you need beforehand</h2>
   <p class="sub">The installer handles the three engines and checks everything else before starting. If anything is missing, it shows you the command to install it.</p>
   <div class="grid g4">
-    <div class="card"><h3>GPU</h3><p>NVIDIA graphics card, Mac with an Apple chip, or unified-memory mini PC (see above).</p></div>
+    <div class="card"><h3>GPU</h3><p>NVIDIA graphics card, Mac with an Apple chip, or unified-memory mini PC (see above). On NVIDIA, with the driver installed: <code>nvidia-smi</code> must work.</p></div>
     <div class="card"><h3>Python 3.10+ and curl</h3><p>On Ubuntu/Debian, you also need <code>python3-venv</code> and <code>sudo</code> to install Ollama.</p><pre>sudo apt install -y python3-venv curl</pre></div>
     <div class="card"><h3>Chrome</h3><p>Or another browser with microphone access.</p></div>
     <div class="card"><h3>Claude Code or Codex</h3><p>Only needed once, to build with the prompts.</p></div>
@@ -272,7 +272,7 @@
 
   <div class="step"><div class="b">4</div><div>
     <h3>Create the voice</h3>
-    <p>In VoiceStudio: <b>Model Catalogue</b> → install <b>VoxCPM2</b> (speaks Portuguese, Apache-2.0 license) and select it. Then go to <b>Profiles → New → Clone</b> with 10–20 seconds of YOUR voice, without music or echo, and name it <b>Jarvis</b>. VoiceStudio is a desktop app; note the version that worked and don’t update in the middle of the project.</p>
+    <p>In VoiceStudio: <b>Model Catalogue</b> → install <b>VoxCPM2</b> (speaks Portuguese, Apache-2.0 license) and select it. Then go to <b>Profiles → New → Clone</b> with 10–20 seconds of YOUR voice, without music or echo, and name it <b>Jarvis</b>. VoiceStudio is a desktop app; note the version that worked and don’t update in the middle of the project. On Linux, open it with <code>~/.local/bin/VoiceStudio</code> (it is an AppImage: Ubuntu 24.04 needs <code>sudo apt install -y libfuse2t64</code>, 22.04 needs <code>libfuse2</code>). On first launch it downloads its own engine, which takes a while.</p>
   </div></div>
 
   <div class="step"><div class="b">5</div><div>

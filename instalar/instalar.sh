@@ -52,7 +52,7 @@ elif [ "$SO" = "Linux" ]; then
     NOME="$(nvidia-smi --query-gpu=name --format=csv,noheader | head -1 | sed "s/^NVIDIA //")"
     VRAM_MB="$(nvidia-smi --query-gpu=memory.total --format=csv,noheader,nounits | head -1 | tr -dc '0-9')"
     if [ -n "$VRAM_MB" ] && [ "$VRAM_MB" -gt 0 ]; then
-      GPU="NVIDIA $NOME"; MEM_GB=$(( VRAM_MB / 1024 ))
+      GPU="NVIDIA $NOME"; MEM_GB=$(( (VRAM_MB + 512) / 1024 ))
     else
       # GB10 / DGX Spark / Jetson: a GPU usa a memória do sistema (unificada)
       GPU="NVIDIA $NOME (memória unificada)"; MEM_GB=$RAM_GB
@@ -65,6 +65,7 @@ fi
 
 if [ -z "$GPU" ]; then
   erro "Não achei GPU (NVIDIA, AMD com ROCm) nem Apple Silicon."
+  echo "    Tem placa NVIDIA? Instale o driver primeiro: o comando nvidia-smi tem de funcionar."
   echo "    O Jarvis Local precisa de GPU ou memória unificada para conversar por voz."
   echo "    Em CPU (ex.: VPS comum) o cérebro responde a 2–5 palavras por segundo. Veja REQUISITOS.md."
   if [ "$FORCAR_CPU" = 0 ]; then echo "    Para instalar mesmo assim (só teste): --forcar-cpu"; exit 1; fi
@@ -133,6 +134,14 @@ elif [ "$SO" = "Linux" ] && [ "$ARQ" = "aarch64" ]; then
   echo  "    bun install && bun run setup:api && bun run dev"
 else
   roda "curl -fsSL https://voicestudio.sh/install | sh"
+  if [ "$SO" = "Linux" ]; then
+    echo "    Abra o app com: ~/.local/bin/VoiceStudio  (é um AppImage; no 1º uso ele baixa o próprio motor e demora)"
+    if ! ldconfig -p 2>/dev/null | grep -q "libfuse.so.2"; then
+      aviso "AppImage precisa da libfuse2. Ubuntu 24.04: sudo apt install -y libfuse2t64 · 22.04: sudo apt install -y libfuse2"
+    fi
+  else
+    echo "    Abra o app VoiceStudio na pasta Aplicativos."
+  fi
 fi
 if [ "$SEM_VOZ" = 0 ]; then
   echo "    Depois, no app: Model Catalogue → instale VoxCPM2 (fala português, Apache-2.0) e selecione."

@@ -12,6 +12,8 @@ Jarvis Local is an open kit from INEMA for building a personal assistant you cal
 
 Complete guide (landing page + walkthrough): **https://inematds.github.io/jarvis-local/guia/en/**
 
+🎬 Video: https://www.youtube.com/shorts/dCPinV8Djn0
+
 ## ⚠️ Runs on a GPU — read first
 
 | Runs well | Not suitable for voice conversations |

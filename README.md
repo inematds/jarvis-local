@@ -12,6 +12,8 @@ O Jarvis Local é um kit aberto do INEMA para montar um assistente pessoal que v
 
 Guia completo (landing + passo a passo): **https://inematds.github.io/jarvis-local/guia/**
 
+🎬 Vídeo: https://www.youtube.com/shorts/dCPinV8Djn0
+
 ## ⚠️ Roda em GPU — leia antes
 
 | Roda bem | Não serve para conversar por voz |
